@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web → API Demo</title>
+</head>
+<body>
+  <p>Click the button to call the API container</p>
+
+  <button onclick="callAPI()">Call API</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    function callAPI() {
+      fetch('/api')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('output').innerText = data;
+        })
+        .catch(err => {
+          document.getElementById('output').innerText = err;
+        });
+    }
+  </script>
+</body>
+</html>
